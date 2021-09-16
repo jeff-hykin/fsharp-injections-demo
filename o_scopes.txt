@@ -1,4 +1,0 @@
-punctuation.section.attribute.begin
-punctuation.section.attribute.end
-template.fsharp.html
-variable.fsharp
