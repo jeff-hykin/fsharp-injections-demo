@@ -12,21 +12,16 @@ require_relative './tokens.rb'
 grammar = Grammar.new(
     name: "F# Templates",
     scope_name: "template.fsharp.injection",
-    ending: "",
+    ending: "", # normally the ending would be .fsharp
     injectionSelector: "L:source.fsharp - (comment, string.quoted.double.fsharp, string.quoted.triple.fsharp)",
     fileTypes: [
-        # "template.fsharp.injection",
-        # for example here are come C++ file extensions:
-		#     "cpp",
-		#     "cxx",
-		#     "c++",
     ],
     version: "",
 )
 
 # 
 #
-# Setup Grammar
+# (equivlent to textmate's "patterns": [])
 #
 # 
     grammar[:$initial_context] = [
@@ -35,7 +30,7 @@ grammar = Grammar.new(
     ]
 
 # 
-# patterns
+# patterns (equivlent to textmate's "repository": {})
 # 
     grammar[:html_injection] = PatternRange.new(
         start_pattern: Pattern.new(
