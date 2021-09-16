@@ -1,4 +1,0 @@
-punctuation.section.attribute.begin.injection
-punctuation.section.attribute.end.injection
-template.fsharp.html
-variable.fsharp.injection
