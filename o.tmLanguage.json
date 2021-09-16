@@ -1,0 +1,73 @@
+{
+  "version": "7295d7a66ef5eabd7a22debc2ced9140406e812a",
+  "name": "F# Templates",
+  "scopeName": "template.fsharp.injection",
+  "ending": "",
+  "injectionSelector": "L:source.fsharp - (comment, string.quoted.double.fsharp, string.quoted.triple.fsharp)",
+  "patterns": [
+    {
+      "begin": "[ ._](html|svg) *(?:(?=\\$)|$)",
+      "end": "\"\"\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.begin"
+        },
+        "1": {
+          "name": "variable.fsharp"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.end"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "\\$\"\"\"",
+          "end": "(?=\"\"\")",
+          "beginCaptures": {
+          },
+          "endCaptures": {
+          },
+          "contentName": "template.fsharp.html"
+        },
+        {
+          "include": "source.fsharp"
+        }
+      ]
+    },
+    {
+      "begin": "[ ._](sql) *(?:(?=\\$)|$)",
+      "end": "\"\"\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.begin"
+        },
+        "1": {
+          "name": "variable.fsharp"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.end"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "\\$\"\"\"",
+          "end": "(?=\"\"\")",
+          "beginCaptures": {
+          },
+          "endCaptures": {
+          },
+          "contentName": "template.fsharp.html"
+        },
+        {
+          "include": "source.fsharp"
+        }
+      ]
+    }
+  ],
+  "repository": {
+  }
+}
