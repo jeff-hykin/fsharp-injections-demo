@@ -1,0 +1,87 @@
+{
+  "version": "",
+  "name": "F# Templates",
+  "scopeName": "template.fsharp.injection",
+  "fileTypes": [
+
+  ],
+  "injectionSelector": "L:source.fsharp - (comment, string.quoted.double.fsharp, string.quoted.triple.fsharp)",
+  "patterns": [
+    {
+      "include": "#html_injection"
+    },
+    {
+      "include": "#sql_injection"
+    }
+  ],
+  "repository": {
+    "html_injection": {
+      "begin": "[ ._](html|svg)(?:(?:\\s)+)?(?:(?=\\$)|(?:(?:\\n)|$))",
+      "end": "\"{3,}",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.begin.injection"
+        },
+        "1": {
+          "name": "variable.fsharp.injection"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.end.injection"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#html_template"
+        },
+        {
+          "include": "source.fsharp"
+        }
+      ]
+    },
+    "html_template": {
+      "begin": "\\$\"\"\"",
+      "end": "(?=\"\"\")",
+      "beginCaptures": {
+      },
+      "endCaptures": {
+      },
+      "contentName": "template.fsharp.html"
+    },
+    "sql_injection": {
+      "begin": "[ ._](sql)(?:(?:\\s)+)?(?:(?=\\$)|(?:(?:\\n)|$))",
+      "end": "\"{3,}",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.begin.injection"
+        },
+        "1": {
+          "name": "variable.fsharp.injection"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.attribute.end.injection"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#sql_template"
+        },
+        {
+          "include": "source.fsharp"
+        }
+      ]
+    },
+    "sql_template": {
+      "begin": "\\$\"\"\"",
+      "end": "(?=\"\"\")",
+      "beginCaptures": {
+      },
+      "endCaptures": {
+      },
+      "contentName": "template.fsharp.html"
+    }
+  }
+}
