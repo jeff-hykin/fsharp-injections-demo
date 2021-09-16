@@ -1,5 +1,5 @@
 {
-  "version": "7295d7a66ef5eabd7a22debc2ced9140406e812a",
+  "version": "2b8b29fb2961915e7f5571b7ff0c702dfe030c00",
   "name": "F# Templates",
   "scopeName": "template.fsharp.injection",
   "ending": "",
@@ -29,7 +29,12 @@
           },
           "endCaptures": {
           },
-          "contentName": "template.fsharp.html"
+          "contentName": "template.fsharp.html",
+          "patterns": [
+            {
+              "include": "text.html.derivative"
+            }
+          ]
         },
         {
           "include": "source.fsharp"
@@ -60,7 +65,12 @@
           },
           "endCaptures": {
           },
-          "contentName": "template.fsharp.html"
+          "contentName": "template.fsharp.html",
+          "patterns": [
+            {
+              "include": "source.sql"
+            }
+          ]
         },
         {
           "include": "source.fsharp"

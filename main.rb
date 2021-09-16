@@ -5,8 +5,8 @@ g = Grammar.new name: "F# Templates",
                 ending: "",
                 injectionSelector: "L:source.fsharp - (comment, string.quoted.double.fsharp, string.quoted.triple.fsharp)"
 
-def P(*a); Pattern.new(*a) end
-def PR(*a); PatternRange.new(*a) end
+def P(*a) Pattern.new(*a) end
+def PR(*a) PatternRange.new(*a) end
 def I(i,l)
     
     s = P tag_as: "punctuation.section.attribute.begin",
@@ -18,7 +18,7 @@ def I(i,l)
     n = PR tag_content_as: "template.fsharp.html",
            start_pattern: /\$"""/,
            end_pattern: /(?=""")/,
-           patterns: [l]
+           includes: [l]
     
     c = n, "source.fsharp"
     
@@ -27,9 +27,5 @@ def I(i,l)
        includes: c
 end
 
-g[:$initial_context] = [
-    I( /html|svg/, "text.html.derivative" ),
-    I( /sql/, "source.sql" ),
-]
-
+g[:$initial_context] = I( /html|svg/, "text.html.derivative" ), I( /sql/, "source.sql" )
 g.save_to syntax_name: "o"
